@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Gotham-Light';
+    src: url("fonts/Gotham-Light.otf") format("truetype");
+ }
+@font-face {
+font-family: 'GothamBook';
+src: url("fonts/GothamBook.ttf") format("truetype");
+}
+$font-main: 'Gotham-Light', sans-serif;
+$font-heading: 'GothamBook', sans-serif;
+
+/* Using SCSS variables to store breakpoints */
+$breakpoint-mobile: 664px;
+$breakpoint-tablet: 768px;
+/* color variables */
+$base-color: #acabac;
+$black: black;
+$input-border-color: #f0f0f0;
+$form-field-color: #322c30;
+$lightgrey-bg: #d3d3d32e;
+
+
+/* mixins */
+@mixin borderRadius ($value) {
+    border-radius: $value;
+}
+
+
+p {
+    margin: 0;
+}
+
+
+body {
+    background: #fafafa;
+    font-family: $font-main;
+    color: $base-color;
+    font-size: 12.5px;
+}
+button:disabled {
+    background: $lightgrey-bg !important;
+}
+.error {
+    color: red;
+}
+.login-form {
+    max-width: 423px;
+    margin: 10%;
+    background: white;
+    padding: 9.2% 9%;
+    box-shadow: 0 0 6px 0px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    img {
+        max-width: 98px;
+    }
+    h2 {
+        color: $black;
+        font-family: $font-heading;
+        margin: 30px 0 10px;
+    }
+    form {
+        margin-top: 49px;
+    }
+    label {
+        color: $form-field-color;
+        display: block;
+        margin-top: 10px;
+    }
+    input[type="text"] {
+        display: block;
+        margin: 10px auto 16px;
+        width: 97.7%;
+        border: 1px solid $input-border-color;
+        @include borderRadius(5px);
+        height: 30px;
+    }
+    button {
+        display: block;
+        margin-top: 42.5px;
+        font-family: $font-main;
+        border: 1px solid $input-border-color;
+        background: white;
+        padding: 13px 30px;
+        @include borderRadius(10px);
+        color: $form-field-color;
+    }
+   
+}
+
+@media (min-width: $breakpoint-mobile) {
+    html, body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+    .login-form {
+        margin: auto;
+        min-width: 423px;
+        padding: 3.2% 3%;
+    }
+    #root {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }  
+          
+} 
+@media (min-width: $breakpoint-tablet) {
+    .login-form {
+        margin: auto;
+    }
+}
+
